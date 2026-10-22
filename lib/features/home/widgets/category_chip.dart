@@ -1,16 +1,23 @@
+import 'package:ecommerce_app_huma_volve/core/models/category_model.dart';
+import 'package:ecommerce_app_huma_volve/features/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
+
 import '../../../core/theme.dart';
 
 class CategoryChip extends StatelessWidget {
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
+  final CategoryModel category;
+  final HomeCubit cubit;
 
   const CategoryChip({
     super.key,
     required this.label,
     required this.isSelected,
     required this.onTap,
+    required this.category,
+    required this.cubit,
   });
 
   @override

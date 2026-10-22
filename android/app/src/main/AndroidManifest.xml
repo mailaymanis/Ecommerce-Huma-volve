@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required so the app can access the internet in release builds.
+         Debug builds already declare it in src/debug/AndroidManifest.xml. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="ecommerce_app_huma_volve"
         android:name="${applicationName}"
