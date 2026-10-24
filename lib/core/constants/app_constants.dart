@@ -1,9 +1,11 @@
 class AppConstants {
   const AppConstants._();
 
-  // Maximum number of items requested/shown on the home screen.
+  // Maximum number of items shown on the home screen.
   static const int categoryLimit = 5;
-  static const int productLimit = 10;
+
+  // Number of products requested per page on the home screen.
+  static const int productPageSize = 10;
 
   static const String allCategoryName = 'All';
 

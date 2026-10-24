@@ -21,10 +21,18 @@ class HomeRemoteDataSource {
         .toList();
   }
 
-  Future<List<ProductModel>> fetchProducts({int? categoryId}) async {
+  Future<List<ProductModel>> fetchProducts({
+    int? categoryId,
+    int offset = 0,
+    int limit = AppConstants.productPageSize,
+  }) async {
     final url = categoryId == null
-        ? '${ApiConstants.productsUrl}?offset=0&limit=${AppConstants.productLimit}'
-        : ApiConstants.categoryProductsUrl(categoryId);
+        ? ApiConstants.productsPageUrl(offset: offset, limit: limit)
+        : ApiConstants.categoryProductsUrl(
+            categoryId,
+            offset: offset,
+            limit: limit,
+          );
 
     final response = await _apiClient.get(url) as List;
     return response

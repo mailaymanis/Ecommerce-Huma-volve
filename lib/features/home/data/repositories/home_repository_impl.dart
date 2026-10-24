@@ -30,12 +30,18 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<Result<List<Product>>> getProducts({int? categoryId}) async {
+  Future<Result<List<Product>>> getProducts({
+    int? categoryId,
+    int offset = 0,
+    int limit = AppConstants.productPageSize,
+  }) async {
     try {
       final models = await _remoteDataSource.fetchProducts(
         categoryId: categoryId,
+        offset: offset,
+        limit: limit,
       );
-      return Success(models.take(AppConstants.productLimit).toList());
+      return Success(models.take(limit).toList());
     } on ServerException catch (e) {
       return FailureResult(ServerFailure(e.message));
     } on Exception catch (e) {

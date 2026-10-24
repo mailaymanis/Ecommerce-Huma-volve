@@ -19,6 +19,15 @@ class ProductsLoadingState extends HomeStates {}
 
 class ProductsSuccessState extends HomeStates {}
 
+//create product pagination states
+class ProductsLoadingMoreState extends HomeStates {}
+
+class ProductsLoadMoreErrorState extends HomeStates {
+  final String message;
+
+  ProductsLoadMoreErrorState({required this.message});
+}
+
 class ProductsErrorState extends HomeStates {
   final String message;
 
