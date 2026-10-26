@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'core/navigation/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'features/splash/presentation/screens/splash_screen.dart';
 
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
+      // Deep links arrive here as named routes, e.g. `/product/12`.
+      onGenerateRoute: AppRouter.onGenerateRoute,
       home: const SplashScreen(),
     );
   }

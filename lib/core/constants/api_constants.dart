@@ -8,6 +8,9 @@ class ApiConstants {
   static const String categoriesUrl = '$baseUrl/categories';
   static const String productsUrl = '$baseUrl/products';
 
+  // A single product, used when a deep link only carries the product id.
+  static String productUrl(int productId) => '$productsUrl/$productId';
+
   // A single products page, used by the paginated home grid.
   static String productsPageUrl({required int offset, required int limit}) =>
       '$productsUrl?offset=$offset&limit=$limit';
